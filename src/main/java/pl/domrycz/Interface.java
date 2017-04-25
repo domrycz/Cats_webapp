@@ -9,19 +9,22 @@ import java.util.regex.Pattern;
 import pl.domrycz.model.Cat;
 
 /**
- * TERAZ ROZDZIAŁ 5 - KOLEKCJE
+ * TERAZ ROZDZIAŁ 6 !!
  */
 
 
 public class Interface {
     private static Scanner input = new Scanner(System.in);
-
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    private static String getUserInput() {
+    private static CatDAO catDAO = new CatDAO();
+
+    public static String getUserInput() {
         return input.nextLine();
     }
+
     public static void main(String[] args) {
         Cat cat = new Cat();
+
         System.out.print("Enter cat's keeper: ");
         cat.setKeeper(getUserInput());
         System.out.print("Enter cat's name: ");
@@ -55,6 +58,7 @@ public class Interface {
         } while(cat.getWeight() == null || !isRight);
 
         System.out.println("Cat's data saved!");
+        catDAO.addCat(cat);
     }
 
 
