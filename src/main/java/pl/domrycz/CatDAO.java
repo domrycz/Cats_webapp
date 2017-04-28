@@ -10,7 +10,11 @@ public class CatDAO {
 
     public void addCat(Cat cat) {
         catsList.add(cat);
-        System.out.println("Cat has been added to database!");
+        System.out.println("Cat has been added to database!\n");
+    }
+
+    public List<Cat> getCatsList() {
+        return catsList;
     }
 
 }

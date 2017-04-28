@@ -33,7 +33,7 @@ public class Cat {
         this.keeper = keeper;
     }
 
-    void introduce() {
+    public void introduce() {
         System.out.println("Name: " + getName() + ", Birth date: " + getDate() + ", weight: "
         + getWeight() + ", my keeper: " +  getKeeper());
     }
