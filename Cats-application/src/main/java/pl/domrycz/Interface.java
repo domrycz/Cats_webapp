@@ -1,4 +1,5 @@
 package pl.domrycz;
+import pl.domrycz.domain.Cat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,10 +7,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pl.domrycz.model.Cat;
-
 /**
- * TERAZ ROZDZIAŁ 6 !!
+ * Nadal zadanie 7 - program uruchamia się z konsoli ale wali błędami bo nie może się połączyć z Cat
  */
 
 
@@ -18,7 +17,7 @@ public class Interface {
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     private static CatDAO catDAO = new CatDAO();
 
-    public static String getUserInput() {
+    private static String getUserInput() {
         return input.nextLine();
     }
 
@@ -99,7 +98,7 @@ public class Interface {
             } catch (IndexOutOfBoundsException | NumberFormatException nfe) {
                 System.out.println("You have to use a index of existing cat!");
                 showCatsInput = -1;
-                /** it was set to -1 to be able to properly use do-while loop**/
+                /** it was set to -1 to be able to properly use do-while loop **/
             }
         } while(showCatsInput == -1);
 

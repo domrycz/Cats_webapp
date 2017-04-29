@@ -7,6 +7,13 @@
     <groupId>com.firstApp</groupId>
     <artifactId>Cats</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>Cats-domain</module>
+        <module>Cats-application</module>
+    </modules>
+    <packaging>pom</packaging>
+    <url>kobietydokodu.pl</url>
+
     <build>
         <plugins>
             <plugin>
@@ -20,5 +27,12 @@
         </plugins>
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.3.8.RELEASE</version>
+        </dependency>
+    </dependencies>
 
 </project>

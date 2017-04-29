@@ -1,4 +1,4 @@
-package pl.domrycz.model;
+package pl.domrycz.domain;
 
 import java.util.Date;
 

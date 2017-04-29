@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Cats" />
+        <module name="Cats-application" />
+        <module name="Cats-domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Cats" target="1.7" />
+      <module name="Cats-application" target="1.7" />
+      <module name="Cats-domain" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
