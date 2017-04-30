@@ -1,4 +1,4 @@
-package pl.domrycz.domain;
+package pl.domrycz;
 
 import java.util.Date;
 

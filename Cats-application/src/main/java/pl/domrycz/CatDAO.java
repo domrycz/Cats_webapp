@@ -1,5 +1,4 @@
 package pl.domrycz;
-import pl.domrycz.domain.Cat;
 
 import java.util.ArrayList;
 import java.util.List;

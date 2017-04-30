@@ -1,5 +1,4 @@
 package pl.domrycz;
-import pl.domrycz.domain.Cat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Nadal zadanie 7 - program uruchamia się z konsoli ale wali błędami bo nie może się połączyć z Cat
+ * Zadanie 8
  */
 
 
