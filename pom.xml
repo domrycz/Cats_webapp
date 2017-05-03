@@ -11,6 +11,7 @@
     <modules>
         <module>Cats-domain</module>
         <module>Cats-application</module>
+        <module>Cats-webapp</module>
     </modules>
 
     <url>http://kobietydokodu.pl</url>

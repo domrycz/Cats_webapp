@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Zadanie 8
+ * Teraz zadanie 10! W międzyczasie tworzyć widoki w bootstrap!
  */
 
 
