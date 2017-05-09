@@ -6,8 +6,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Teraz zadanie 10! W międzyczasie tworzyć widoki w bootstrap!
+/*
+ Teraz zadanie 10! Obsługa formularza w CatsController!
  */
 
 
