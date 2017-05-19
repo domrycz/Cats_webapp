@@ -1,13 +1,32 @@
 package pl.domrycz;
 
+
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="Cat")
 public class Cat {
+
+    @Id
+    @GeneratedValue
+    private Integer id;
+    @Column(nullable = false)
     private String name;
-    private Date date = new Date();
+    @Column(nullable = false)
+    private Date date;
+    @Column(nullable = false)
     private Float weight;
+    @Column(nullable = false)
     private String keeper;
 
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }

@@ -13,6 +13,8 @@ import pl.domrycz.dto.CatDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class CatsController {
@@ -30,7 +32,12 @@ public class CatsController {
        if(request.getMethod().equalsIgnoreCase("post") && !result.hasErrors()) {
            Cat cat = new Cat();
            cat.setName(catDTO.getName());
-           cat.setDate(catDTO.getDate());
+           SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+           try {
+               cat.setDate(sdf.parse(catDTO.getDate()));
+           } catch (ParseException pe) {
+               pe.printStackTrace();
+           }
            cat.setWeight(catDTO.getWeight());
            cat.setKeeper(catDTO.getKeeper());
            catDAO.addCat(cat);

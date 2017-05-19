@@ -1,28 +1,24 @@
 package pl.domrycz.dto;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
-import java.util.Date;
+import javax.validation.constraints.*;
 
 public class CatDTO {
 
-    @NotBlank
+    @NotBlank(message = "This field can't be empty!")
     @Size(min = 3, max = 15)
     private String name;
 
-    @NotNull
-    @Past
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date;
+    @NotBlank(message = "This field can't be empty!")
+    @Pattern(regexp="[1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]")
+    private String date;
 
-    @NotNull
+    @NotNull(message = "This field can't be empty!")
+    @Min(0)
+    @Max(99)
     private Float weight;
 
-    @NotBlank
+    @NotBlank(message = "This field can't be empty!")
     @Size(min = 2, max = 30)
     private String keeper;
 
@@ -34,11 +30,11 @@ public class CatDTO {
         this.name = name;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -7,9 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
- Teraz zadanie 10! Obsługa formularza w CatsController!
- */
-
+Odpalić z najprostszą bazą danych - z zadania 12
+*/
 
 public class Interface {
     private static Scanner input = new Scanner(System.in);
@@ -97,7 +96,7 @@ public class Interface {
             } catch (IndexOutOfBoundsException | NumberFormatException nfe) {
                 System.out.println("You have to use a index of existing cat!");
                 showCatsInput = -1;
-                /** it was set to -1 to be able to properly use do-while loop **/
+                /* it was set to -1 to be able to properly use do-while loop */
             }
         } while(showCatsInput == -1);
 
