@@ -1,9 +1,7 @@
 package pl.domrycz;
 
-
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="Cat")
@@ -15,7 +13,7 @@ public class Cat {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private Date date;
+    private LocalDate date;
     @Column(nullable = false)
     private Float weight;
     @Column(nullable = false)
@@ -33,10 +31,10 @@ public class Cat {
     public void setName(String name) {
         this.name = name;
     }
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
     public Float getWeight() {

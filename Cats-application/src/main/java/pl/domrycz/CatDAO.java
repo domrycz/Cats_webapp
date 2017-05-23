@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,8 +32,7 @@ public class CatDAO {
             PreparedStatement prepStat = conn.prepareStatement(sql);
             prepStat.setInt(1, cat.getId());
             prepStat.setString(2, cat.getName());
-            java.util.Date d = cat.getDate(); // converting birth date from java.util.Date to java.sql.Date
-            prepStat.setDate(3, new java.sql.Date(d.getTime()));
+            prepStat.setDate(3, java.sql.Date.valueOf(cat.getDate()));
             prepStat.setFloat(4, cat.getWeight());
             prepStat.setString(5, cat.getKeeper());
 
@@ -55,7 +55,7 @@ public class CatDAO {
     }
 
 
-    public Cat getCatbyId(Integer id) {
+    public Cat getCatById(Integer id) {
         String sql = "SELECT * FROM cat WHERE id = ?";
         Connection conn = null;
 
@@ -69,7 +69,7 @@ public class CatDAO {
                 cat = new Cat();
                 cat.setId(rs.getInt("id"));
                 cat.setName(rs.getString("name"));
-                cat.setDate(rs.getDate("date"));
+                cat.setDate(rs.getDate("date").toLocalDate());
                 cat.setWeight(rs.getFloat("weight"));
                 cat.setKeeper(rs.getString("keeper"));
             }

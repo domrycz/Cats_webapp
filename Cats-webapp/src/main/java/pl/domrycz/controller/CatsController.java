@@ -14,7 +14,9 @@ import pl.domrycz.dto.CatDTO;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 @Controller
 public class CatsController {
@@ -32,10 +34,10 @@ public class CatsController {
        if(request.getMethod().equalsIgnoreCase("post") && !result.hasErrors()) {
            Cat cat = new Cat();
            cat.setName(catDTO.getName());
-           SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+           DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
            try {
-               cat.setDate(sdf.parse(catDTO.getDate()));
-           } catch (ParseException pe) {
+               cat.setDate(LocalDate.parse(catDTO.getDate(), dtf));
+           } catch (DateTimeParseException pe) {
                pe.printStackTrace();
            }
            cat.setWeight(catDTO.getWeight());
@@ -54,7 +56,7 @@ public class CatsController {
 
     @RequestMapping("/cat-{id}")
     public String showDetails(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("cat", catDAO.getCatbyId(id));
+        model.addAttribute("cat", catDAO.getCatById(id));
         return "showDetails";
     }
 }
