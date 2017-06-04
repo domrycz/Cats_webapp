@@ -7,19 +7,20 @@
 		<title>Cats list</title>
 	</head>
 	<body>
+		<a href="index">Back to Main page</a><br />
 		<a href="add">Add another cat</a><br />
 		<table border="1">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th>Cat id</th>
 					<th>Name</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="cat" items="${catsList}" varStatus="status">
 				<tr>
-					<td>${status.index}</td>
-					<td><a href="<c:url value="cat-${status.index}" />">${cat.name}</a></td>
+					<td>${cat.id}</td>
+					<td><a href="cat-${cat.id}" />${cat.name}</a></td>
 				</tr>
 				</c:forEach>
 			</tbody>

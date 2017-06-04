@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<a href="showAll">Back to cats list</a><br />
+		<a href="index">Back Main Page</a><br />
 		<form:form modelAttribute="catDTO" method="POST">
 			<table border="1">
 				<tbody>

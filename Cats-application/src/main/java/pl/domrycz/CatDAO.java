@@ -24,17 +24,16 @@ public class CatDAO {
     List<Cat> catsList = new ArrayList<Cat>();
 
     public void addCat(Cat cat) {
-        String sql = "INSERT INTO cat VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO cat(name, date, weight, keeper) VALUES (?, ?, ?, ?)";
         Connection conn = null;
 
         try {
             conn = dataSource.getConnection();
             PreparedStatement prepStat = conn.prepareStatement(sql);
-            prepStat.setInt(1, cat.getId());
-            prepStat.setString(2, cat.getName());
-            prepStat.setDate(3, java.sql.Date.valueOf(cat.getDate()));
-            prepStat.setFloat(4, cat.getWeight());
-            prepStat.setString(5, cat.getKeeper());
+            prepStat.setString(1, cat.getName());
+            prepStat.setDate(2, java.sql.Date.valueOf(cat.getDate()));
+            prepStat.setFloat(3, cat.getWeight());
+            prepStat.setString(4, cat.getKeeper());
 
             prepStat.executeUpdate();
             prepStat.close();
@@ -51,6 +50,32 @@ public class CatDAO {
     }
 
     public List<Cat> getCatsList() {
+
+        String sql = "SELECT id, name FROM cat";
+        Connection conn = null;
+
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement prepStat = conn.prepareStatement(sql);
+            ResultSet rs = prepStat.executeQuery();
+            Cat cat;
+            catsList.clear();
+            while(rs.next()) {
+                cat = new Cat();
+                cat.setId(rs.getInt("id"));
+                cat.setName(rs.getString("name"));
+                catsList.add(cat);
+            }
+        } catch (SQLException sqle) {
+            throw new RuntimeException(sqle);
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException sqle) {}
+            }
+        }
+
         return catsList;
     }
 
