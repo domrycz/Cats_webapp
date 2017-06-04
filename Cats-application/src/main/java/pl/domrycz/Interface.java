@@ -1,19 +1,20 @@
 package pl.domrycz;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Zadanie 8
- */
-
+/*
+Odpalić z najprostszą bazą danych - z zadania 12
+*/
 
 public class Interface {
     private static Scanner input = new Scanner(System.in);
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static CatDAO catDAO = new CatDAO();
 
     private static String getUserInput() {
@@ -61,8 +62,9 @@ public class Interface {
             isRight = matcher.matches();
             if(isRight) {
                 try {
-                    cat.setDate(sdf.parse(inputLoaded));
-                } catch (ParseException pe) { }
+                    LocalDate date = LocalDate.parse(inputLoaded, dtf);
+                    cat.setDate(date);
+                } catch (DateTimeParseException pe) { }
             } else
                 System.out.println("Wrong date format!");
         } while (cat.getDate() == null || !isRight);
@@ -97,7 +99,7 @@ public class Interface {
             } catch (IndexOutOfBoundsException | NumberFormatException nfe) {
                 System.out.println("You have to use a index of existing cat!");
                 showCatsInput = -1;
-                /** it was set to -1 to be able to properly use do-while loop **/
+                /* it was set to -1 to be able to properly use do-while loop */
             }
         } while(showCatsInput == -1);
 

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="Cats-webapp:war">
-    <output-path>$PROJECT_DIR$/Cats_webapp/target</output-path>
-    <root id="archive" name="Cats-webapp-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="Cats-webapp:war exploded" />
-    </root>
-  </artifact>
-</component>
